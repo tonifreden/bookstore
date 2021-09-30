@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,9 +25,15 @@ public class BookController {
     private CategoryRepository categoryRepository;
     
     @GetMapping("/index")
-    public String book(Model model) { // will later be named more accordingly
+    public String book(Model model) { // will later be named more accordingly (or deleted)
         model.addAttribute("book", new Book());
         return "index";
+    }
+
+    // Show login page
+    @GetMapping("/login")
+    public String login() {
+        return "login";
     }
 
     // Show all books in a list
@@ -65,6 +72,7 @@ public class BookController {
 
     // Delete book
     @GetMapping("/delete/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
     public String deleteBook(@PathVariable("id") Long bookId, Model model) {
         bookRepository.deleteById(bookId);
         return "redirect:../booklist";
