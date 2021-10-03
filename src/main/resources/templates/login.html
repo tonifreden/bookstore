@@ -9,6 +9,7 @@
      <div class="col-md-4 col-md-offset-4">
         <div class="alert alert-danger" th:if="${param.error}">Invalid username and password.</div>
         <div class="alert alert-warning" th:if="${param.logout}">You have been logged out.</div>
+        <div class="alert alert-success" th:if="${successMessage}" th:text="${successMessage}"></div>
         <form th:action="@{/login}" method="post">
             <div><label> Username: <input type="text" name="username" class="form-control"/> </label></div>
             <div><label> Password: <input type="password" name="password" class="form-control"/> </label></div>
