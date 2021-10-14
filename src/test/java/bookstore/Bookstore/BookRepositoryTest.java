@@ -7,7 +7,8 @@ import java.util.List;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+// import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import bookstore.Bookstore.domain.Book;
@@ -15,7 +16,8 @@ import bookstore.Bookstore.domain.BookRepository;
 import bookstore.Bookstore.domain.Category;
 
 @ExtendWith(SpringExtension.class)
-@DataJpaTest
+// @DataJpaTest <-- for in-memory database testing
+@SpringBootTest
 public class BookRepositoryTest {
     
     @Autowired

@@ -34,6 +34,7 @@ public class BookstoreApplication {
 			bookRepository.save(new Book("My second (attempt at a) best-seller", "Also me", 2020, "654321-13", 40.89, categoryRepository.findByName("Autobiography").get(0)));
 			bookRepository.save(new Book("I guess I'm not writing best-sellers after all...", "Still me", 2021, "918273-14", 5.69, categoryRepository.findByName("Parody").get(0)));
 
+			userRepository.deleteAll();
 			userRepository.save(new User("Toni", "$2a$10$TsLgdl1ZXhEW6/yCAEysNeb.3yNvrVOhspZFKWZk6mQnOgW3aBQga", "toni@mymail.com", "ADMIN"));
 			userRepository.save(new User("user", "$2a$10$3ETczh2wWdS8DKItS.M2lOXDPvGJgR1mFBhzrYYCXP8h2xlhVX.m.", "user@awesomemail.com", "USER"));
 			userRepository.save(new User("admin", "$2a$10$x21wbs50/mK2eKQz8w0lEueSkJq/NwHj7PSmM4A5QtU60.0QqDC9G", "admin@bossmail.com", "ADMIN"));
